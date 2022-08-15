@@ -1,0 +1,8 @@
+.DS_Store
+node_modules
+ignore
+dst/**/*
+psd/*-assets/
+.sass-cache
+!src/model/**/*
+!docs/model/**/*

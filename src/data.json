@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "domain": "https://github.com/tjcages/nyc-tw",
+    "websiteName": "New York Tech Week",
+    "keywords": "New York, Tech, Week, Party Round, WebGL, three.js"
+  },
+  "pages": {
+    "index": {
+      "title": "",
+      "id": "index",
+      "description": "join us in an underground tech week hosted in new york city.",
+      "path": "/",
+      "color": "white"
+    }
+  }
+}
