@@ -1,4 +1,4 @@
-const Force3 = require('../common/Force3').default;
+const Force3 = require('../common/force3').default;
 
 export default class Hookes {
   constructor(opt) {

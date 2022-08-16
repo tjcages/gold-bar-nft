@@ -1,7 +1,7 @@
 export default class ConsoleSignature {
   constructor() {
-    this.message = `curated by tyler j`;
-    this.url = `https://www.twitter/tjcages`;
+    this.message = `created by yoichi kobayashi`;
+    this.url = `https://www.tplh.net/`;
     this.show();
   }
   show() {
