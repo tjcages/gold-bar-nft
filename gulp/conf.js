@@ -2,7 +2,7 @@ const DIR = module.exports.DIR =  {
   PATH: '/sketch-threejs',
   SRC: 'src',
   DEST: 'dst',
-  BUILD: 'docs'
+  BUILD: 'public'
 };
 const WEBPACK_CONFIG = {
   NODE_ENV: JSON.stringify(process.env.NODE_ENV),

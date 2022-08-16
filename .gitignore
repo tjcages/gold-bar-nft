@@ -2,6 +2,7 @@
 node_modules
 ignore
 docs
+public
 dst/**/*
 psd/*-assets/
 .sass-cache
