@@ -18,7 +18,6 @@ if (pageId == 'index') {
   });
 
   switch (pageId) {
-
     default:
   }
 }

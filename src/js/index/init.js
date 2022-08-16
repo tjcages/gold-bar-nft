@@ -3,6 +3,7 @@ const { debounce } = require('@ykob/js-util');
 
 const SmoothScrollManager = require('../smooth_scroll_manager/SmoothScrollManager').default;
 const TitleObject = require('./TitleObject').default;
+const BuildingObject = require('./BuildingObject').default;
 // const SkyOctahedron = require('./SkyOctahedron').default;
 // const SkyOctahedronShell = require('./SkyOctahedronShell').default;
 const Ground = require('./Ground').default;
@@ -27,6 +28,7 @@ export default function() {
   const texLoader = new THREE.TextureLoader();
   const ground = new Ground();
   const titleObject = new TitleObject();
+  const buildingObject = new BuildingObject();
   // const skyOctahedron = new SkyOctahedron();
   // const skyOctahedronShell = new SkyOctahedronShell();
   const debris = [
@@ -56,6 +58,7 @@ export default function() {
   const render = () => {
     const time = clock.getDelta();
     titleObject.render(time);
+    buildingObject.render(time);
     // skyOctahedron.render(time);
     // skyOctahedronShell.render(time);
     ground.render(time);
@@ -100,6 +103,12 @@ export default function() {
 
     scene.add(postEffect.obj);
     sceneBack.add(ground.obj);
+
+    buildingObject.loadTexture(() => {
+      sceneBack.add(buildingObject.obj);
+      transitionOnload();
+    });
+
     titleObject.loadTexture(() => {
       sceneBack.add(titleObject.obj);
       // sceneBack.add(skyOctahedron.obj);

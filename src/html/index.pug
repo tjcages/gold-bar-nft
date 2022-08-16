@@ -24,12 +24,14 @@ block content
         .p-introduction__row.js-transition-intro
           |featuring events by
         .p-introduction__row.js-transition-intro
-          +textLink("https://twitter.com/NYCTechWeek", "PARTY ROUND", "_blank")
-          |&nbsp;&&nbsp;
-          +textLink("https://twitter.com/NYCTechWeek", "A16Z", "_blank")
-        .p-introduction__icon.js-transition-intro
-          a(href="https://twitter.com/NYCTechWeek", target="_blank").p-introduction__link.js-transition-intro
-            +iconTwitter(20)
+          a(href="https://company.co/", target="_blank")
+            img(src='../img/logos/companyco.png', style='height:36px; margin-right: 8px;')
+          |&nbsp;X&nbsp;
+          a(href="https://www.partyround.com/", target="_blank")
+            img(src='../img/logos/partyround.png', style='height:36px;')
+          //- +textLink("https://twitter.com/NYCTechWeek", "PARTY ROUND", "_blank")
+          //- |&nbsp;&&nbsp;
+          //- +textLink("https://twitter.com/NYCTechWeek", "A16Z", "_blank")
         .p-introduction__follow.js-transition-intro
           .p-introduction__follow-in.p-introduction__follow-in--1
           .p-introduction__follow-in.p-introduction__follow-in--2
@@ -43,7 +45,9 @@ block content
           .p-infinite-wall__item
             |//////////
           .p-infinite-wall__item
-            |DO NOT SHARE
+            |STAY IN TOUCH 
+            a(href="https://twitter.com/NYCTechWeek", target="_blank")
+              +iconTwitter(14)
           .p-infinite-wall__item
             |//////////
 
@@ -78,7 +82,7 @@ block content
         .p-infinite-wall__item
           |STAY IN TOUCH 
           a(href="https://twitter.com/NYCTechWeek", target="_blank")
-            +iconTwitter(16)
+            +iconTwitter(14)
         .p-infinite-wall__item
           |//////////
         .p-infinite-wall__item

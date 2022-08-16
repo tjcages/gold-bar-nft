@@ -24,11 +24,12 @@ export default class TitleObject {
   }
   loadTexture(callback) {
     const loader = new THREE.TextureLoader();
-    loader.load("/sketch-threejs/img/index/tex_title.png", (texture) => {
+    loader.load("/sketch-threejs/img/index/building.png", (texture) => {
       texture.magFilter = THREE.NearestFilter;
       texture.minFilter = THREE.NearestFilter;
       this.uniforms.texture.value = texture;
       this.obj = this.createObj();
+      this.obj.position.set(0, 148, 0);
 
       this.isLoaded = true;
       callback();
@@ -36,12 +37,10 @@ export default class TitleObject {
   }
   createObj() {
     return new THREE.Mesh(
-      new THREE.PlaneGeometry(256, 100, 40, 10),
+      new THREE.PlaneGeometry(200, 260, 40, 10),
       new THREE.RawShaderMaterial({
         uniforms: this.uniforms,
         vertexShader: vs,
-        // vertexShader: require('./glsl/titleObject.vs').default,
-        // fragmentShader: require('./glsl/titleObject.fs').default,
         fragmentShader: fs,
         transparent: true,
       })
