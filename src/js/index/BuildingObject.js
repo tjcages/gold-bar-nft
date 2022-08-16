@@ -24,7 +24,7 @@ export default class TitleObject {
   }
   loadTexture(callback) {
     const loader = new THREE.TextureLoader();
-    loader.load("/nyctw/img/index/building.png", (texture) => {
+    loader.load("/img/index/building.png", (texture) => {
       texture.magFilter = THREE.NearestFilter;
       texture.minFilter = THREE.NearestFilter;
       this.uniforms.texture.value = texture;
