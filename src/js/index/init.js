@@ -116,6 +116,10 @@ export default function () {
       elm.classList.add("is-shown");
     }
 
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    }
+
     registerScroll.addEventListener("click", function () {
       var register = document.querySelector("#register");
       register.scrollIntoView({ behavior: "smooth", block: "end" });

@@ -33,10 +33,6 @@ export default class SmoothScrollManager {
     this.isWorking = false;
     this.isWorkingSmooth = false;
     this.isAlreadyAddEvent = false;
-
-    window.onbeforeunload = function () {
-      window.scrollTo(0, 0);
-    }
   }
   start(callback) {
     setTimeout(() => {
