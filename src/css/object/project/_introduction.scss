@@ -227,10 +227,15 @@
 
 .p-host-apply {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 24px;
   width: 100%;
+
+  @media (min-width: $break-point-mobile) {
+    flex-direction: row;
+  }
 
   input, select {
     background-color: transparent;
@@ -262,6 +267,7 @@
   }
 
   button {
+    min-width: 212px;
     padding: 14px 24px;
     width: 164px;
     background-color: #fff;
