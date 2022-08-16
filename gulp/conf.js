@@ -1,5 +1,5 @@
 const DIR = module.exports.DIR =  {
-  PATH: '/nyctw',
+  PATH: '/sketch-threejs',
   SRC: 'src',
   DEST: 'dst',
   BUILD: 'docs'

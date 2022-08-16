@@ -37,6 +37,11 @@
     animation-iteration-count: infinite;
     animation-timing-function: $linear;
   }
+
+  a {
+    margin-left: 8px;
+    margin-top: 4px;
+  }
 }
 
 .p-introduction {
@@ -213,11 +218,6 @@
 
   .p-infinite-wall {
     bottom: 0;
-
-    a {
-      margin-left: 8px;
-      margin-top: 4px;
-    }
   }
 }
 
