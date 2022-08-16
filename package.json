@@ -4,7 +4,7 @@
   "description": "it's my personal sketch made with three.js.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ykob/sketch-threejs"
+    "url": "https://github.com/tjcages/nyc-tw"
   },
   "private": true,
   "scripts": {
