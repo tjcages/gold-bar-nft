@@ -55,26 +55,32 @@ block content
 
   .p-host-event.js-contents
     .p-host-event__row
-      |register to host an event
+      |REGISTER YOUR INTEREST
     .p-host-apply
       .p-introduction__input
-        input(placeholder="Your name" type='text' name='name')
+        input(placeholder="Your name" type='text' name='name')#name
       .p-introduction__input
-        input(placeholder="Your email" type='email' name='email')
+        input(placeholder="Your email" type='email' name='email')#email
       .p-introduction__input
-        input(placeholder="Your title" type='text' name='title')
+        input(placeholder="Your company" type='text' name='company')#company
 
     .p-host-apply
       .p-introduction__input
-        input(placeholder="Your company" type='text' name='company')
+        input(placeholder="Your title" type='text' name='title')#title
       .p-introduction__input
-        input(placeholder="Type of event" type='text' name='type')
+        select(name='type')#type
+          option(value='', selected='selected') -- Select attendee type --
+          option(value="Guest") Attending as a guest
+          option(value="Host") Hosting an event
 
     .p-host-apply
       .p-introduction__button 
-        button(type='button')
-          |Submit Event
+        button(type='button')#register
+          |Register Interest
 
+    .p-success#success
+      |Successful registration, now follow along on 
+      +textLink("https://twitter.com/NYCTechWeek", " Twitter", "_blank")
 
     .p-infinite-wall.js-transition-intro
       - var array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]

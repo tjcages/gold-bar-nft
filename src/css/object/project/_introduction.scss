@@ -72,7 +72,7 @@
       transition-timing-function: $easeOutCubic;
       @for $i from 0 through 4 {
         &:nth-of-type(#{$i + 1}) {
-          transition-delay: $i * 0.25s + 3s;
+          transition-delay: $i * 0.25s + 1s;
         }
       }
     }
@@ -89,7 +89,7 @@
       transition-timing-function: $easeOutCubic;
       @for $i from 0 through 4 {
         &:nth-of-type(#{$i + 1}) {
-          transition-delay: $i * 0.25s + 3s;
+          transition-delay: $i * 0.25s + 1s;
         }
       }
     }
@@ -108,7 +108,7 @@
     &.is-shown {
       opacity: 1;
       transform: scale(1);
-      transition-delay: 3s;
+      transition-delay: 1s;
       transition-duration: 2s;
       transition-timing-function: $easeOutCubic;
     }
@@ -133,7 +133,7 @@
       transition-timing-function: $easeOutCubic;
       @for $i from 0 through 4 {
         &:nth-of-type(#{$i + 1}) {
-          transition-delay: $i * 0.1s + 3.6s;
+          transition-delay: $i * 0.1s + 1.6s;
         }
       }
     }
@@ -149,7 +149,7 @@
     &.is-shown {
       opacity: 1;
       transition-duration: 1s;
-      transition-delay: 3s;
+      transition-delay: 1s;
     }
     &-in {
       width: 1px;
@@ -210,7 +210,7 @@
     &.is-shown {
       opacity: 1;
       transform: scale(1);
-      transition-delay: 3s;
+      transition-delay: 1s;
       transition-duration: 2s;
       transition-timing-function: $easeOutCubic;
     }
@@ -228,13 +228,25 @@
   gap: 24px;
   width: 100%;
 
-  input {
+  input, select {
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.6);
     padding: 18px 24px;
     width: 164px;
+
+    &.is-error {
+      border: 1px solid #ff200e;
+    }
+  }
+  select {
+    min-width: 212px;
   }
   input:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 1);
+  }
+  select:focus {
     outline: none;
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 1);
@@ -246,5 +258,20 @@
     background-color: #fff;
     color: #000;
     border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
+.p-success  {
+  padding: 12px 24px;
+  background-color: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transform: scale(0.6);
+  transition-property: opacity, transform;
+
+  &.is-shown {
+    opacity: 1;
+    transform: scale(1);
+    transition-duration: 0.3s;
+    transition-timing-function: $easeOutCubic;
   }
 }
