@@ -16,7 +16,7 @@ html(lang="ja")
       - if (page.id !== 'index')
         .p-utility-menu
           a.c-button(
-            href = "/sketch-threejs/",
+            href = "/",
             class = (page.color == "white") ? 'c-button--white' : 'c-button--black',
             )
             span.c-button__icon.c-button__icon--back(
@@ -25,4 +25,4 @@ html(lang="ja")
             span.c-button__label
               +splitStr('back', 'js-split-str')
     block scripts
-    script(src="/js/main.js")
+    script(src="/js/main.min.js")
