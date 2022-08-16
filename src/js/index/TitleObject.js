@@ -24,7 +24,7 @@ export default class TitleObject {
   }
   loadTexture(callback) {
     const loader = new THREE.TextureLoader();
-    loader.load("/sketch-threejs/img/index/tex_title.png", (texture) => {
+    loader.load("/img/index/tex_title.png", (texture) => {
       texture.magFilter = THREE.NearestFilter;
       texture.minFilter = THREE.NearestFilter;
       this.uniforms.texture.value = texture;
