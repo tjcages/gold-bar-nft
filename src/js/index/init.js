@@ -1,5 +1,6 @@
 const THREE = require("three");
 const { debounce } = require("@ykob/js-util");
+const { registerToDatabase } = require("../firebase")
 
 const SmoothScrollManager =
   require("../smooth_scroll_manager/SmoothScrollManager").default;
@@ -166,6 +167,15 @@ export default function () {
       if (goodToGo) {
         // submit registration & clear
         successMessage.classList.add("is-shown");
+
+        const application = {
+          name: nameInput.value,
+          email: emailInput.value,
+          company: companyInput.value,
+          title: titleInput.value,
+          type: typeSelect.value
+        }
+        registerToDatabase(application)
 
         nameInput.value = "";
         emailInput.value = "";
