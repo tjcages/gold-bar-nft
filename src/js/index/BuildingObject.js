@@ -29,7 +29,7 @@ export default class TitleObject {
       texture.minFilter = THREE.NearestFilter;
       this.uniforms.texture.value = texture;
       this.obj = this.createObj();
-      this.obj.position.set(0, 148, 0);
+      this.obj.position.set(0, 136, 0);
 
       this.isLoaded = true;
       callback();
