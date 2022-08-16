@@ -53,8 +53,9 @@ export default function () {
   const typo = new Typo();
   let textures;
 
+  const registerScroll = document.getElementById("registerScroll");
   const elemIntro = document.getElementsByClassName("js-transition-intro");
-  const registerButton = document.getElementById("register");
+  const registerButton = document.getElementById("submit");
   const nameInput = document.getElementById("name");
   const emailInput = document.getElementById("email");
   const companyInput = document.getElementById("company");
@@ -115,6 +116,16 @@ export default function () {
       elm.classList.add("is-shown");
     }
 
+    registerScroll.addEventListener("click", function () {
+      var register = document.querySelector("#register");
+      register.scrollIntoView({ behavior: "smooth", block: "end" });
+
+      // hide register scroll button
+      setTimeout(function () {
+        registerScroll.classList.remove("is-shown");
+      }, 400);
+    });
+
     registerButton.addEventListener("click", function () {
       var goodToGo = true;
       // check name input
@@ -156,11 +167,11 @@ export default function () {
         // submit registration & clear
         successMessage.classList.add("is-shown");
 
-        nameInput.value = ""
-        emailInput.value = ""
-        companyInput.value = ""
-        titleInput.value = ""
-        typeSelect.value = ""
+        nameInput.value = "";
+        emailInput.value = "";
+        companyInput.value = "";
+        titleInput.value = "";
+        typeSelect.value = "";
       }
     });
   };

@@ -5,7 +5,7 @@ block vars
     var page = data.pages.index;
 
 block content
-  .l-contents.js-contents
+  .l-contents.js-contents#content
     .p-introduction
       .p-introduction__wrap
         .p-introduction__links.js-transition-intro
@@ -25,17 +25,18 @@ block content
           |featuring events by
         .p-introduction__row.js-transition-intro
           a(href="https://company.co/", target="_blank")
-            img(src='./img/logos/companyco.png', style='height:36px; margin-right: 8px;')
-          |&nbsp;X&nbsp;
+            img(src='./img/logos/companyco.png', style='height:40px;')
           a(href="https://www.partyround.com/", target="_blank")
             img(src='./img/logos/partyround.png', style='height:36px;')
-          //- +textLink("https://twitter.com/NYCTechWeek", "PARTY ROUND", "_blank")
-          //- |&nbsp;&&nbsp;
-          //- +textLink("https://twitter.com/NYCTechWeek", "A16Z", "_blank")
+
         .p-introduction__follow.js-transition-intro
           .p-introduction__follow-in.p-introduction__follow-in--1
           .p-introduction__follow-in.p-introduction__follow-in--2
           .p-introduction__follow-in.p-introduction__follow-in--3
+
+        .p-introduction__row.js-transition-intro#registerScroll
+          |
+          +textLink("#register", "Register")
 
       .p-infinite-wall.js-transition-intro
         - var array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
@@ -45,15 +46,17 @@ block content
           .p-infinite-wall__item
             |//////////
           .p-infinite-wall__item
-            |FOLLOW ALONG
-            a(href="https://twitter.com/NYCTechWeek", target="_blank")
+            |
+            +textLink("https://twitter.com/NYCTechWeek", "FOLLOW ALONG", "_blank")
+            a(href="https://twitter.com/NYCTechWeek", target="_blank")#twitter
               +iconTwitter(14)
           .p-infinite-wall__item
             |//////////
 
   .p-dummy-scroll.js-dummy-scroll
 
-  .p-host-event.js-contents
+
+  .p-host-event.js-contents#register
     .p-host-event__row
       |REGISTER YOUR INTEREST
     .p-host-apply
@@ -70,12 +73,12 @@ block content
       .p-introduction__input
         select(name='type')#type
           option(value='', selected='selected') -- Select attendee type --
-          option(value="Guest") Attending as a guest
-          option(value="Host") Hosting an event
+          option(value="Guest") I'd like to attend events
+          option(value="Host") I'd like to host an event
 
     .p-host-apply
       .p-introduction__button 
-        button(type='button')#register
+        button(type='button')#submit
           |Register Interest
 
     .p-success#success
@@ -86,8 +89,9 @@ block content
       - var array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
       each arr in array
         .p-infinite-wall__item
-          |FOLLOW ALONG
-          a(href="https://twitter.com/NYCTechWeek", target="_blank")
+          |
+          +textLink("https://twitter.com/NYCTechWeek", "FOLLOW ALONG", "_blank")
+          a(href="https://twitter.com/NYCTechWeek", target="_blank")#twitter
             +iconTwitter(14)
         .p-infinite-wall__item
           |//////////

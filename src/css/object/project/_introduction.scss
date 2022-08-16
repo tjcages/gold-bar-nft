@@ -38,7 +38,7 @@
     animation-timing-function: $linear;
   }
 
-  a {
+  #twitter {
     margin-left: 8px;
     margin-top: 4px;
   }
@@ -57,11 +57,15 @@
   &__wrap {
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: 0px;
     left: 0;
   }
   &__row {
     margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
     opacity: 0;
     transform: translateY(-10px);
     transition-property: opacity, transform;
@@ -72,7 +76,7 @@
       transition-timing-function: $easeOutCubic;
       @for $i from 0 through 4 {
         &:nth-of-type(#{$i + 1}) {
-          transition-delay: $i * 0.25s + 1s;
+          transition-delay: $i * 0.25s + 0.6s;
         }
       }
     }
@@ -89,7 +93,7 @@
       transition-timing-function: $easeOutCubic;
       @for $i from 0 through 4 {
         &:nth-of-type(#{$i + 1}) {
-          transition-delay: $i * 0.25s + 1s;
+          transition-delay: $i * 0.25s + 0.6s;
         }
       }
     }
@@ -108,7 +112,7 @@
     &.is-shown {
       opacity: 1;
       transform: scale(1);
-      transition-delay: 1s;
+      transition-delay: 0.6s;
       transition-duration: 2s;
       transition-timing-function: $easeOutCubic;
     }
@@ -133,7 +137,7 @@
       transition-timing-function: $easeOutCubic;
       @for $i from 0 through 4 {
         &:nth-of-type(#{$i + 1}) {
-          transition-delay: $i * 0.1s + 1.6s;
+          transition-delay: $i * 0.1s + 1.2s;
         }
       }
     }
@@ -143,13 +147,13 @@
     height: 10vh;
     overflow: hidden;
     position: relative;
-    margin: 6vh auto 0;
+    margin: 3vh auto 1vh;
     opacity: 0;
     transition-property: opacity;
     &.is-shown {
       opacity: 1;
-      transition-duration: 1s;
-      transition-delay: 1s;
+      transition-duration: 0.6s;
+      transition-delay: 1.6s;
     }
     &-in {
       width: 1px;
@@ -210,8 +214,8 @@
     &.is-shown {
       opacity: 1;
       transform: scale(1);
-      transition-delay: 1s;
-      transition-duration: 2s;
+      transition-delay: 0.6s;
+      transition-duration: 1s;
       transition-timing-function: $easeOutCubic;
     }
   }
