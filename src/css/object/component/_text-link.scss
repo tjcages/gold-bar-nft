@@ -7,10 +7,10 @@
     z-index: 2;
   }
   &__bg {
-    height: 2px;
+    height: 1px;
     display: block;
     position: absolute;
-    top: 50%; right: 0; left: 0;
+    bottom: 0%; right: 0; left: 0;
     &--white {
       background-color: #fff;
     }
@@ -53,8 +53,6 @@
     animation-fill-mode: both;
   }
   &:hover & {
-    &__label {
-    }
     &__bg {
       animation-name: openTextLinkBar;
     }

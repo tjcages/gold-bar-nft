@@ -196,6 +196,9 @@ export default class SmoothScrollManager {
     window.addEventListener(hookEventForResize, debounce((event) => {
       this.resize();
     }, 400), false);
+    window.onafterunload = () => {
+      window.scrollTo(0, 0);
+    }
 
     this.isAlreadyAddEvent = true;
   }
