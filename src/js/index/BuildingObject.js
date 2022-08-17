@@ -1,5 +1,8 @@
 const THREE = require("three");
 
+const isiOS = require('../smooth_scroll_manager/isiOS');
+const isAndroid = require('../smooth_scroll_manager/isAndroid');
+
 import vs from "../sketch/easy_glitch/glsl/typo.vs";
 import fs from "../sketch/easy_glitch/glsl/typo.fs";
 
@@ -29,7 +32,12 @@ export default class TitleObject {
       texture.minFilter = THREE.NearestFilter;
       this.uniforms.texture.value = texture;
       this.obj = this.createObj();
-      this.obj.position.set(0, 136, 0);
+      if (isiOS() | isAndroid()) {
+        console.log("Android!!")
+        this.obj.position.set(0, 200, 0);
+      } else {
+        this.obj.position.set(0, 136, 0);
+      }
 
       this.isLoaded = true;
       callback();

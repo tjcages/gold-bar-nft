@@ -97,8 +97,12 @@
   &__wrap {
     position: absolute;
     right: 0;
-    bottom: 0px;
+    bottom: 64px;
     left: 0;
+
+    @media (min-width: $break-point-mobile) {
+      bottom: 0;
+    }
   }
   &__row {
     display: flex;
