@@ -34,7 +34,7 @@ export default class TitleObject {
       this.obj = this.createObj();
       if (isiOS() | isAndroid()) {
         console.log("Android!!")
-        this.obj.position.set(0, 56, 0);
+        this.obj.position.set(0, 24, 0);
       } else {
         this.obj.position.set(0, -12, 0);
       }
