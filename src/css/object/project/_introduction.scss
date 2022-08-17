@@ -101,9 +101,10 @@
     left: 0;
   }
   &__row {
-    margin-bottom: 12px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    max-width: 464px;
+    margin: 0 auto 12px;
     align-items: flex-end;
     gap: 20px;
     opacity: 0;

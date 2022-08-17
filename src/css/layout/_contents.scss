@@ -1,3 +1,7 @@
+html::-webkit-scrollbar {
+  display: none;
+}
+
 .l-contents {
   width: 100vw;
   overflow: hidden;
