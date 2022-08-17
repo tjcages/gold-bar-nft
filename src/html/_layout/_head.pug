@@ -1,11 +1,10 @@
 - 
-  var titleMerge = (page.title != '') ? page.title + ' │ ' + data.meta.websiteName : data.meta.websiteName;
   var keywordsMerge = (page.keywords != '') ? page.keywords + ', ' + data.meta.keywords : metaKeywordsBase;
   var themeColor = '#111111';
 
 meta(charset="utf-8")
 meta(http-equiv="X-UA-Compatible", content="IE=edge")
-title #{titleMerge}
+title #{data.meta.description}
 meta(name="viewport", content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1")
 meta(name="description", content=page.description)
 meta(name="keywords", content=keywordsMerge)
@@ -17,22 +16,22 @@ link(rel="apple-touch-icon" sizes="180x180" href="/img/common/app_icon.png")
 link(rel="stylesheet" href="/css/main.min.css")
 link(rel="stylesheet" href="/css/main.css")
 
-meta(property="og:title", content=titleMerge)
-meta(property="og:site_name", content=data.meta.website_name)
+meta(property="og:title", content=data.meta.description)
+meta(property="og:site_name", content=data.meta.title)
 meta(property="og:type", content="website")
-meta(property="og:description", content=page.description)
+meta(property="og:description", content=data.meta.description)
 meta(property="og:url", content=data.meta.domain + page.path)
 meta(
   property="og:image",
-  content = "/img/common/preview.png"
+  content = "https://uploads-ssl.webflow.com/62d6e3ffe8046711911b7164/62fd39b81b4dae234495d66f_preview.jpg"
 )
 
 meta(name="twitter:card", content="summary_large_image")
-meta(name="twitter:title", content=titleMerge)
+meta(name="twitter:title", content=data.meta.title)
 meta(name="twitter:description", content=page.description)
 meta(
   name="twitter:image",
-  content = "/img/common/preview.png"
+  content = "https://uploads-ssl.webflow.com/62d6e3ffe8046711911b7164/62fd39b81b4dae234495d66f_preview.jpg"
 )
 
 .
