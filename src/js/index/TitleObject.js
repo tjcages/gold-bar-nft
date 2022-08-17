@@ -33,9 +33,9 @@ export default class TitleObject {
       this.uniforms.texture.value = texture;
       this.obj = this.createObj();
       if (isiOS() | isAndroid()) {
-        this.obj.position.set(0, 24, 0);
+        this.obj.position.set(0, 44, 0);
       } else {
-        this.obj.position.set(0, -12, 0);
+        this.obj.position.set(0, 8, 0);
       }
 
       this.isLoaded = true;
