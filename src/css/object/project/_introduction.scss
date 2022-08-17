@@ -144,6 +144,7 @@
     justify-content: center;
     border-top: 1px dashed #fff;
     border-bottom: 1px dashed #fff;
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 17px 0;
     opacity: 0;
     transform: scale(1.8);
@@ -279,6 +280,8 @@
     border: 1px solid rgba(255, 255, 255, 0.6);
     padding: 18px 24px;
     width: 164px;
+    -webkit-appearance: none;
+    border-radius: 0;
 
     &.is-error {
       border: 1px solid #ff200e;
@@ -288,8 +291,6 @@
     min-width: 212px;
     height: 54px;
     min-height: 54px;
-    -webkit-appearance: none;
-    border-radius: 0;
     padding: 0 24px;
   }
   input:focus {
