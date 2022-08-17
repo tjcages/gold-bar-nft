@@ -109,7 +109,7 @@
     justify-content: center;
     max-width: 464px;
     margin: 0 auto 12px;
-    align-items: flex-end;
+    align-items: center;
     gap: 20px;
     opacity: 0;
     transform: translateY(-10px);
@@ -124,6 +124,10 @@
           transition-delay: $i * 0.25s + 0.6s;
         }
       }
+    }
+
+    img {
+      height: 36px;
     }
   }
   &__icon {
@@ -150,8 +154,8 @@
     border-top: 1px dashed #fff;
     border-bottom: 1px dashed #fff;
     background-color: rgba(255, 255, 255, 0.1);
-    padding: 17px 0;
-    font-size: 1.2rem;
+    padding: 12px 0;
+    font-size: 1.1rem;
     opacity: 0;
     transform: scale(1.8);
     transition-property: opacity, transform;
@@ -191,10 +195,10 @@
   }
   &__follow {
     width: 15px;
-    height: 10vh;
+    height: 7vh;
     overflow: hidden;
     position: relative;
-    margin: 3vh auto 1vh;
+    margin: 1vh auto 1vh;
     opacity: 0;
     transition-property: opacity;
     &.is-shown {
