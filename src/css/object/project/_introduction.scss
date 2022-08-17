@@ -297,7 +297,7 @@
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.6);
     padding: 18px 24px;
-    width: 164px;
+    width: 212px;
     -webkit-appearance: none;
     border-radius: 0;
     font-size: 1.1rem;
@@ -311,7 +311,7 @@
     }
   }
   select {
-    min-width: 212px;
+    min-width: 264px;
     height: 54px;
     min-height: 54px;
     padding: 0 24px;
@@ -328,12 +328,17 @@
   }
 
   button {
-    min-width: 212px;
+    min-width: 264px;
     padding: 14px 24px;
     width: 164px;
     background-color: #fff;
     color: #000;
     border: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 1.1rem;
+
+    @media (min-width: $break-point-mobile) {
+      font-size: 1rem;
+    }
   }
 }
 
