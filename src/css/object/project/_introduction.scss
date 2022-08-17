@@ -300,6 +300,11 @@
     width: 164px;
     -webkit-appearance: none;
     border-radius: 0;
+    font-size: 1.1rem;
+
+    @media (min-width: $break-point-mobile) {
+      font-size: 1rem;
+    }
 
     &.is-error {
       border: 1px solid #ff200e;
