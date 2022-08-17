@@ -63,66 +63,48 @@ block content
 
   .p-dummy-scroll.js-dummy-scroll
 
+  .l-contents.js-contents
+    .p-host-event.js-contents#register
+      .p-host-event__row
+        |REGISTER FOR NYC TECH WEEK
+      .p-host-apply
+        .p-introduction__input
+          input(placeholder="Your name" type='text' name='name')#name
+        .p-introduction__input
+          input(placeholder="Your email" type='email' name='email')#email
+        .p-introduction__input
+          input(placeholder="Your company" type='text' name='company')#company
 
-  .p-host-event.js-contents#register
-    .p-host-event__row
-      |REGISTER FOR NYC TECH WEEK
-    .p-host-apply
-      .p-introduction__input
-        input(placeholder="Your name" type='text' name='name')#name
-      .p-introduction__input
-        input(placeholder="Your email" type='email' name='email')#email
-      .p-introduction__input
-        input(placeholder="Your company" type='text' name='company')#company
+      .p-host-apply
+        .p-introduction__input
+          input(placeholder="Your title" type='text' name='title')#title
+        .p-introduction__input
+          select(name='type')#type
+            option(value='', selected='selected') -- Select attendee type --
+            option(value="Guest") I'd like to attend events
+            option(value="Host") I'd like to host an event
 
-    .p-host-apply
-      .p-introduction__input
-        input(placeholder="Your title" type='text' name='title')#title
-      .p-introduction__input
-        select(name='type')#type
-          option(value='', selected='selected') -- Select attendee type --
-          option(value="Guest") I'd like to attend events
-          option(value="Host") I'd like to host an event
+      .p-host-apply
+        button(type='button')#submit
+          |Register Interest
 
-    .p-host-apply
-      button(type='button')#submit
-        |Register Interest
+      .p-success#success
+        |Successful registration, now follow along on 
+        +textLink("https://twitter.com/NYCTechWeek", " Twitter", "_blank")
 
-    .p-success#success
-      |Successful registration, now follow along on 
-      +textLink("https://twitter.com/NYCTechWeek", " Twitter", "_blank")
-
-    .p-infinite-wall.js-transition-intro
-      - var array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-      each arr in array
-        .p-infinite-wall__item
-          |
-          +textLink("https://twitter.com/NYCTechWeek", "FOLLOW ALONG", "_blank")
-          a(href="https://twitter.com/NYCTechWeek", target="_blank")#twitter
-            +iconTwitter(14)
-        .p-infinite-wall__item
-          |//////////
-        .p-infinite-wall__item
-          |NEW YORK TECH WEEK
-        .p-infinite-wall__item
-          |//////////
-      //- .p-sketch-index
-      //- - var count = 0;
-      //- each item in data.pages
-      //-   if (item.title !== '' && item.title !== 'shadow')
-      //-     .p-sketch-index__item(
-      //-       class = 'js-smooth-item js-scroll-item',
-      //-     )
-      //-       a(href = `/sketch-threejs${item.path}`).p-sketch-index__item-wrap
-      //-         .p-sketch-index__item-thumb(
-      //-           style = `background-image: url(/sketch-threejs/img/common/ogp_${item.id}.jpg)`
-      //-         )
-      //-           .p-sketch-index__item-thumb-label
-      //-             +splitStr(item.title, 'js-split-str')
-      //-         .p-sketch-index__item-date
-      //-           |dropped: #{item.posted} 
-      //-           if (item.update)
-      //-             |/ update: #{item.update}
-      //-     - count++;
+      .p-infinite-wall-bottom.js-transition-intro
+          - var array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+          each arr in array
+            .p-infinite-wall__item
+              |
+              +textLink("https://twitter.com/NYCTechWeek", "FOLLOW ALONG", "_blank")
+              a(href="https://twitter.com/NYCTechWeek", target="_blank")#twitter
+                +iconTwitter(14)
+            .p-infinite-wall__item
+              |//////////
+            .p-infinite-wall__item
+              |NEW YORK TECH WEEK
+            .p-infinite-wall__item
+              |//////////
 
   canvas(id="canvas-webgl", class="p-canvas-webgl")

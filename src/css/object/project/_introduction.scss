@@ -14,19 +14,59 @@
   position: absolute;
   left: 0;
   right: 0;
+  top: 0;
   z-index: 100;
   color: #fff;
   padding: 20px;
 
   @keyframes infiniteScroll {
-  from {
-    transform: translateX(0%);
+    from {
+      transform: translateX(0%);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
   }
 
-  to {
-    transform: translateX(-100%);
+  &__item {
+    white-space: nowrap;
+  }
+  &.is-shown {
+    animation-duration: 22s;
+    animation-name: infiniteScroll;
+    animation-iteration-count: infinite;
+    animation-timing-function: $linear;
+  }
+
+  #twitter {
+    margin-left: 8px;
+    margin-top: 4px;
   }
 }
+
+.p-infinite-wall-bottom {
+  display: flex;
+  gap: 24px;
+  line-height: 1.5;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  color: #fff;
+  padding: 20px;
+
+  @keyframes infiniteScroll {
+    from {
+      transform: translateX(0%);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
 
   &__item {
     white-space: nowrap;
@@ -46,10 +86,10 @@
 
 .p-introduction {
   width: 100%;
+  overflow: hidden;
   height: 100vh;
   box-sizing: border-box;
   line-height: 1.5;
-  position: relative;
   z-index: 10;
   color: #fff;
   text-align: center;
@@ -178,10 +218,6 @@
       }
     }
   }
-
-  .p-infinite-wall {
-    top: 0;
-  }
 }
 
 .p-host-event {
@@ -223,10 +259,6 @@
       transition-timing-function: $easeOutCubic;
     }
   }
-
-  .p-infinite-wall {
-    bottom: 0;
-  }
 }
 
 .p-host-apply {
@@ -241,7 +273,8 @@
     flex-direction: row;
   }
 
-  input, select {
+  input,
+  select {
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.6);
     padding: 18px 24px;
@@ -280,7 +313,7 @@
   }
 }
 
-.p-success  {
+.p-success {
   padding: 12px 24px;
   background-color: rgba(255, 255, 255, 0.2);
   opacity: 0;
