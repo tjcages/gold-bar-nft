@@ -39,6 +39,6 @@ export default class Typo extends THREE.Mesh {
     this.material.uniforms.textureNoise.value = textureNoise;
   }
   update(time) {
-    this.material.uniforms.time.value += time / 2.2;
+    this.material.uniforms.time.value += time / 3.6;
   }
 }
