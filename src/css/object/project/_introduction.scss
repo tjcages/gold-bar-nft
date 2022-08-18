@@ -105,12 +105,8 @@
   &__wrap {
     position: absolute;
     right: 0;
-    bottom: 80px;
+    bottom: 0;
     left: 0;
-
-    @media (min-width: $break-point-mobile) {
-      bottom: 0;
-    }
   }
   &__row {
     display: flex;
