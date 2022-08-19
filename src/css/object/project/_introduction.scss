@@ -114,10 +114,15 @@
     max-width: 464px;
     margin: 0 auto 12px;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
     opacity: 0;
     transform: translateY(-10px);
     transition-property: opacity, transform;
+
+    @media (min-width: $break-point-mobile) {
+      gap: 20px;
+    }
+
     &.is-shown {
       opacity: 1;
       transform: translateY(0);
