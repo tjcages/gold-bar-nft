@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -29,10 +29,15 @@ export const registerToDatabase = async (application) => {
     title: application.title,
     attendance: application.type,
   };
-  console.log(attendee);
   try {
     const docRef = await addDoc(collection(db, "attendees"), attendee);
   } catch (e) {
     console.error("Error adding document: ", e);
   }
 };
+
+// export const countAttendees = async () => {
+//   const querySnapshot = await getDocs(collection(db, "attendees"));
+//   const size = querySnapshot.size
+//   console.log("Attendees count: ", size)
+// }

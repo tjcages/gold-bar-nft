@@ -175,6 +175,7 @@ export default function () {
           title: titleInput.value,
           type: typeSelect.value
         }
+
         registerToDatabase(application)
 
         nameInput.value = "";
