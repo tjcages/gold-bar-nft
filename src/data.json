@@ -12,6 +12,13 @@
       "description": "New York Tech Week is a week of IRL events thrown by NYC VCs & startups. Register your email to host or attend the events.",
       "path": "/",
       "color": "white"
+    },
+    "register": {
+      "title": "",
+      "id": "register",
+      "description": "New York Tech Week is a week of IRL events thrown by NYC VCs & startups. Register your event details to be included.",
+      "path": "/register.html",
+      "color": "white"
     }
   }
 }

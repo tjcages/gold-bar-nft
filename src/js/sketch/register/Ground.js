@@ -1,6 +1,8 @@
 const THREE = require('three');
 
-export default class SkyOctahedronShell {
+const { MathEx } = require('@ykob/js-util');
+
+export default class Ground {
   constructor() {
     this.uniforms = {
       time: {
@@ -9,18 +11,18 @@ export default class SkyOctahedronShell {
       },
     };
     this.obj = this.createObj();
+    this.obj.position.set(0, 200, 0);
+    this.obj.rotation.set(MathEx.radians(-90), 0, 0);
   }
   createObj() {
-    const geometry = new THREE.OctahedronGeometry(150, 20);
     return new THREE.Mesh(
-      geometry,
+      new THREE.PlaneGeometry(1024, 1024, 32, 32),
       new THREE.RawShaderMaterial({
         uniforms: this.uniforms,
-        vertexShader: require('./glsl/skyOctahedronShell.vs').default,
-        fragmentShader: require('./glsl/skyOctahedronShell.fs').default,
+        vertexShader: require('./glsl/ground.vs').default,
+        fragmentShader: require('./glsl/ground.fs').default,
         transparent: true,
-        side: THREE.DoubleSide,
-        depthWrite: false
+        wireframe: true
       })
     )
   }
