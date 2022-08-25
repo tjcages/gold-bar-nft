@@ -203,15 +203,22 @@
   color: #fff;
   text-align: center;
   letter-spacing: 0.2em;
-  font-size: 1.1rem;
-
-  @media (min-width: $break-point-mobile) {
-    font-size: 1rem;
-  }
 
   &__row {
+    font-size: 1.1rem;
+
+    @media (min-width: $break-point-mobile) {
+      font-size: 1rem;
+    }
+
     &__bottomspace {
       margin-bottom: 40px;
+      font-weight: bold;
+      font-size: 1.1rem;
+
+      @media (min-width: $break-point-mobile) {
+        font-size: 1rem;
+      }
     }
   }
 
@@ -293,9 +300,8 @@
   }
 
   button {
-    min-width: 264px;
     padding: 14px 24px;
-    width: 164px;
+    width: 300px;
     background-color: #fff;
     color: #000;
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -303,6 +309,7 @@
 
     @media (min-width: $break-point-mobile) {
       font-size: 1rem;
+      width: 164px;
     }
   }
 }

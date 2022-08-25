@@ -14,3 +14,11 @@ mixin textLink(href, label, target)
     span.c-text-link__bg(
       class = (page.color == "white") ?  "c-text-link__bg--white" : "c-text-link__bg--black"
     )
+
+mixin textLinkOpen(href, label, target)
+  a(href = href, target = (target) ? target : '').o-text-link
+    span.o-text-link__label
+      |#{label}
+    span.o-text-link__bg(
+      class = (page.color == "white") ?  "o-text-link__bg--white" : "o-text-link__bg--black"
+    )
