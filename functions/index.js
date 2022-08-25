@@ -40,6 +40,38 @@ exports.monitorRegistrations = functions.firestore
     });
   });
 
+exports.monitorEvents = functions.firestore
+  .document("/events/{documentId}")
+  .onCreate(async (snap, context) => {
+    // Grab the current value of what was written to Firestore.
+    const data = snap.data();
+    const fields = {
+      fields: {
+        Company: data.company,
+        Email: data.email,
+        "Event Capacity": data.eventCapacity,
+        "Event Date": data.eventDate,
+        "Event Description": data.eventDescription,
+        "Event Link": data.eventLink,
+        "Event Location": data.eventLocation,
+        "Event Title": data.eventTitle,
+        Name: data.name,
+        Social: data.social,
+        ID: snap.id,
+      },
+    };
+
+    base("NYC Events").create([fields], function (err, records) {
+      if (err) {
+        functions.logger.log("Error creating new user", err);
+        return;
+      }
+      records.forEach(function (record) {
+        return record;
+      });
+    });
+  });
+
 // exports.migrateDatabase = functions.https.onRequest(
 //   async (request, response) => {
 //     const querySnapshot = db.collection("attendees");
