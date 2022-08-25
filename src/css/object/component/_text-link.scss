@@ -83,7 +83,7 @@
   //
   // Interaction
   //
-  @keyframes openTextLinkBar {
+  @keyframes alreadyOpenTextLinkBar {
     0% {
       transform: scaleX(1);
       transform-origin: left;
@@ -93,7 +93,7 @@
       transform-origin: left;
     }
   }
-  @keyframes closeTextLinkBar {
+  @keyframes alreadyCloseTextLinkBar {
     0% {
       transform: scaleX(0);
       transform-origin: right;
@@ -109,14 +109,14 @@
   }
   &__bg {
     transform: scaleX(1);
-    animation-name: closeTextLinkBar;
+    animation-name: alreadyCloseTextLinkBar;
     animation-duration: 0.4s;
     animation-timing-function: $easeOutCirc;
     animation-fill-mode: both;
   }
   &:hover & {
     &__bg {
-      animation-name: openTextLinkBar;
+      animation-name: alreadyOpenTextLinkBar;
     }
   }
 }
