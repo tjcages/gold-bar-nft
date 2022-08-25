@@ -30,7 +30,15 @@ export const registerToDatabase = async (application) => {
     attendance: application.type,
   };
   try {
-    const docRef = await addDoc(collection(db, "attendees"), attendee);
+    await addDoc(collection(db, "attendees"), attendee);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+};
+
+export const registerEventDetailsToDatabase = async (event) => {
+  try {
+    await addDoc(collection(db, "events"), event);
   } catch (e) {
     console.error("Error adding document: ", e);
   }

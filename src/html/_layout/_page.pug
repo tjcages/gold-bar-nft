@@ -13,17 +13,6 @@ html(lang="ja")
       data-id = page.id
     )
       block content
-      - if (page.id !== 'index')
-        .p-utility-menu
-          a.c-button(
-            href = "/",
-            class = (page.color == "white") ? 'c-button--white' : 'c-button--black',
-            )
-            span.c-button__icon.c-button__icon--back(
-              class = (page.color == "white") ? 'c-button__icon--white' : 'c-button__icon--black'
-              )
-            span.c-button__label
-              +splitStr('back', 'js-split-str')
     block scripts
     script(src="/js/main.min.js")
     script(src="/js/main.js")

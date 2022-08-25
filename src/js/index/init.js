@@ -6,8 +6,6 @@ const SmoothScrollManager =
   require("../smooth_scroll_manager/SmoothScrollManager").default;
 const TitleObject = require("./TitleObject").default;
 const BuildingObject = require("./BuildingObject").default;
-// const SkyOctahedron = require('./SkyOctahedron').default;
-// const SkyOctahedronShell = require('./SkyOctahedronShell').default;
 const Ground = require("./Ground").default;
 const Debris = require("./Debris").default;
 const PostEffect = require("./PostEffect").default;
@@ -39,8 +37,6 @@ export default function () {
   const ground = new Ground();
   const titleObject = new TitleObject();
   const buildingObject = new BuildingObject();
-  // const skyOctahedron = new SkyOctahedron();
-  // const skyOctahedronShell = new SkyOctahedronShell();
   const debris = [
     new Debris(200, -500, 200),
     new Debris(-350, -600, -50),
@@ -77,8 +73,6 @@ export default function () {
     const time = clock.getDelta();
     titleObject.render(time);
     buildingObject.render(time);
-    // skyOctahedron.render(time);
-    // skyOctahedronShell.render(time);
     ground.render(time);
     for (var i = 0; i < debris.length; i++) {
       debris[i].render(time);

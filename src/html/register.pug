@@ -5,4 +5,123 @@ block vars
     var page = data.pages.register;
 
 block content
+  .l-contents.js-contents#content
+    .r-introduction
+      .r-introduction__wrap
+        .r-introduction__links.js-transition-intro
+          .r-introduction__link.js-transition-intro
+            |*
+          .r-introduction__link.js-transition-intro
+            |Oct.
+          .r-introduction__link.js-transition-intro
+            |10th
+          .r-introduction__link.js-transition-intro
+            |–
+          .r-introduction__link.js-transition-intro
+            |16th
+          .r-introduction__link.js-transition-intro
+            |*
+        
+        .r-introduction__follow.js-transition-intro
+          .p-introduction__follow-in.p-introduction__follow-in--1
+          .p-introduction__follow-in.p-introduction__follow-in--2
+          .p-introduction__follow-in.p-introduction__follow-in--3
+
+      .p-infinite-wall.js-transition-intro
+        - var array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        each arr in array
+          .p-infinite-wall__item
+            |NEW YORK TECH WEEK
+          .p-infinite-wall__item
+            |//////////
+          .p-infinite-wall__item
+            |
+            +textLink("https://twitter.com/NYCTechWeek", "FOLLOW ALONG", "_blank")
+            a(href="https://twitter.com/NYCTechWeek", target="_blank")#twitter
+              +iconTwitter(14)
+          .p-infinite-wall__item
+            |//////////
+
+  .p-dummy-scroll.js-dummy-scroll
+
+  .l-contents.js-contents
+    .r-host-event.js-contents#register
+      .r-host-event__row
+        |HOSTING AN NYC TECH WEEK EVENT 
+      .r-host-event__row
+        |Provide details for your event to be included in the official list
+      .r-host-event__row__bottomspace
+        |
+        +textLink("https://www.notion.so/partyround/Hosting-an-NYC-Tech-Week-Event-53822a046f06463db44545e5eb2b5dc8", "- Guide to Hosting an Event -")
+
+      .r-host-apply
+        .r-introduction__input
+          |Full Name
+          input(placeholder="Your name" type='text' name='name')#name
+        .r-introduction__input
+          |Company
+          input(placeholder="Your company" type='text' name='company')#company
+
+      .r-host-apply
+        .r-introduction__input
+          |Email Address
+          input(placeholder="Your email" type='email' name='email')#email
+        .r-introduction__input
+          |Social
+          input(placeholder="Your Twitter or LinkedIn" type='url' name='social')#social
+
+      .r-host-apply
+        .r-introduction__input
+          |Event Title
+          input(placeholder="Event title" type='text' name='event-title')#event-title
+        .r-introduction__input
+          |Event Date & Time
+          input(placeholder="Event date & time" type='datetime-local' name='event-date')#event-date
+
+      .r-host-apply
+        .r-introduction__input
+          |Event Location
+          input(placeholder="Event location" type='text' name='event-location')#event-location
+        .r-introduction__input
+          |Event Capacity
+          select(name='capacity')#capacity
+            option(value='', selected='selected') -- Select capacity level --
+            option(value="Small") Small - 10 to 25
+            option(value="Medium") Medium - 25 to 50
+            option(value="Large") Large - 50+
+        
+      .r-host-apply
+        .r-introduction__input
+          |Registration or Promotional Link (optional)
+          input(placeholder="Event link" type='url' name='event-link')#event-link
+        
+      .r-host-apply
+        .r-introduction__textarea
+          |Event Description
+          textarea(placeholder="Event description" type='text' name='event-description')#event-description
+
+      .p-host-apply
+        button(type='button')#submit
+          |Register Event
+
+      .p-success#success
+        |Successful event registration, see you there soon
+
+      .p-infinite-wall-bottom.js-transition-intro
+          - var array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+          each arr in array
+            .p-infinite-wall__item
+              |
+              +textLink("https://twitter.com/NYCTechWeek", "FOLLOW ALONG", "_blank")
+              a(href="https://twitter.com/NYCTechWeek", target="_blank")#twitter
+                +iconTwitter(14)
+            .p-infinite-wall__item
+              |//////////
+            .p-infinite-wall__item
+              |NEW YORK TECH WEEK
+            .p-infinite-wall__item
+              |//////////
+
+  .l-contents.js-contents
+
   canvas(id="canvas-webgl", class="p-canvas-webgl")
