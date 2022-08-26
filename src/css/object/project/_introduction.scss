@@ -246,8 +246,9 @@
   flex-direction: column;
   gap: 24px;
   width: 100%;
-  height: 120vh;
+  // height: 120vh;
   padding-top: 15vh;
+  padding-bottom: 15vh;
   box-sizing: border-box;
   line-height: 1.5;
   position: relative;
@@ -259,7 +260,8 @@
 
   @media (min-width: $break-point-mobile) {
     padding-top: 30vh;
-    height: 100vh;
+    padding-bottom: 25vh;
+    // height: 100vh;
   }
 
   &__input {
@@ -279,6 +281,12 @@
       transition-delay: 0.6s;
       transition-duration: 1s;
       transition-timing-function: $easeOutCubic;
+    }
+  }
+
+  &__row {
+    &__space {
+      margin-bottom: 24px;
     }
   }
 }
@@ -338,6 +346,12 @@
     color: #000;
     border: 1px solid rgba(0, 0, 0, 0.2);
     font-size: 1.1rem;
+    margin-top: 24px;
+    opacity: 1;
+
+    &.is-hidden {
+      opacity: 0;
+    }
 
     @media (min-width: $break-point-mobile) {
       font-size: 1rem;
@@ -348,14 +362,42 @@
 .p-success {
   padding: 12px 24px;
   background-color: rgba(255, 255, 255, 0.2);
+  display: none;
   opacity: 0;
   transform: scale(0.6);
   transition-property: opacity, transform;
 
   &.is-shown {
+    display: block;
     opacity: 1;
     transform: scale(1);
     transition-duration: 0.3s;
     transition-timing-function: $easeOutCubic;
+  }
+}
+
+.p-additional-fields {
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  margin-top: 24px;
+  background-color: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transform: scale(0.6);
+  transition-property: opacity, transform;
+
+  &.is-shown {
+    display: flex;
+    opacity: 1;
+    transform: scale(1);
+    transition-duration: 0.3s;
+    transition-timing-function: $easeOutCubic;
+  }
+
+  .p-host-event {
+    &__row {
+      text-decoration: underline;
+    }
   }
 }

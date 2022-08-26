@@ -22,15 +22,8 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export const registerToDatabase = async (application) => {
-  const attendee = {
-    name: application.name,
-    email: application.email,
-    company: application.company,
-    title: application.title,
-    attendance: application.type,
-  };
   try {
-    await addDoc(collection(db, "attendees"), attendee);
+    await addDoc(collection(db, "attendees"), application);
   } catch (e) {
     console.error("Error adding document: ", e);
   }

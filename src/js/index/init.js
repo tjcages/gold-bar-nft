@@ -1,6 +1,6 @@
 const THREE = require("three");
 const { debounce } = require("@ykob/js-util");
-const { registerToDatabase } = require("../firebase")
+const { registerToDatabase, registerEventDetailsToDatabase } = require("../firebase");
 
 const SmoothScrollManager =
   require("../smooth_scroll_manager/SmoothScrollManager").default;
@@ -40,9 +40,9 @@ export default function () {
   const debris = [
     new Debris(200, -500, 200),
     new Debris(-350, -600, -50),
-    new Debris(-150, -700, -150),
+    new Debris(250, -750, -150),
     new Debris(-500, -900, 0),
-    new Debris(100, -1100, 250),
+    new Debris(300, -1100, 250),
     new Debris(-100, -1200, -300),
     new Debris(150, -1500, -100),
   ];
@@ -52,13 +52,29 @@ export default function () {
 
   const registerScroll = document.getElementById("registerScroll");
   const elemIntro = document.getElementsByClassName("js-transition-intro");
-  const registerButton = document.getElementById("submit");
+
+  // basic details
   const nameInput = document.getElementById("name");
+  const socialInput = document.getElementById("social");
   const emailInput = document.getElementById("email");
   const companyInput = document.getElementById("company");
   const titleInput = document.getElementById("title");
   const typeSelect = document.getElementById("type");
+
+  // hosting an event
+  const eventDetails = document.getElementById("eventDetails");
+  const eventTitleInput = document.getElementById("event-title");
+  const eventDateInput = document.getElementById("event-date");
+  const eventLocationInput = document.getElementById("event-location");
+  const capacitySelect = document.getElementById("capacity");
+  const eventLinkInput = document.getElementById("event-link");
+  const eventDescriptionInput = document.getElementById("event-description");
+
+  // submission
+  const submitButton = document.getElementById("submit");
+  const registerButton = document.getElementById("registerEvent");
   const successMessage = document.getElementById("success");
+  const eventSuccessMessage = document.getElementById("eventSuccess");
 
   const resizeWindow = () => {
     canvas.width = document.body.clientWidth;
@@ -121,7 +137,28 @@ export default function () {
       }, 400);
     });
 
+    submitButton.addEventListener("click", function () {
+      // submitting as a guest
+      submitAttendee();
+    });
+
     registerButton.addEventListener("click", function () {
+      // submitting as a host
+
+      submitEvent();
+    });
+
+    typeSelect.onchange = function () {
+      if (typeSelect.value == "Host") {
+        eventDetails.classList.add("is-shown");
+        submitButton.classList.add("is-hidden");
+      } else {
+        eventDetails.classList.remove("is-shown");
+        submitButton.classList.remove("is-hidden");
+      }
+    };
+
+    const submitAttendee = (guest = true) => {
       var goodToGo = true;
       // check name input
       if (nameInput.value == "") {
@@ -129,6 +166,13 @@ export default function () {
         goodToGo = false;
       } else {
         nameInput.classList.remove("is-error");
+      }
+      // check social input
+      if (socialInput.value == "") {
+        socialInput.classList.add("is-error");
+        goodToGo = false;
+      } else {
+        socialInput.classList.remove("is-error");
       }
       // check email input
       if (emailInput.value == "") {
@@ -160,25 +204,130 @@ export default function () {
       }
       if (goodToGo) {
         // submit registration & clear
-        successMessage.classList.add("is-shown");
+        if (guest) {
+          successMessage.classList.add("is-shown");
+        }
 
         const application = {
           name: nameInput.value,
+          social: socialInput.value,
           email: emailInput.value,
           company: companyInput.value,
           title: titleInput.value,
-          type: typeSelect.value
-        }
+          attendance: typeSelect.value,
+        };
 
-        registerToDatabase(application)
+        registerToDatabase(application);
 
-        nameInput.value = "";
-        emailInput.value = "";
-        companyInput.value = "";
-        titleInput.value = "";
-        typeSelect.value = "";
+        resetFields();
       }
-    });
+    };
+
+    const submitEvent = () => {
+      var goodToGo = true;
+      // check name input
+      if (nameInput.value == "") {
+        nameInput.classList.add("is-error");
+        goodToGo = false;
+      } else {
+        nameInput.classList.remove("is-error");
+      }
+      // check company input
+      if (companyInput.value == "") {
+        companyInput.classList.add("is-error");
+        goodToGo = false;
+      } else {
+        companyInput.classList.remove("is-error");
+      }
+      // check email input
+      if (emailInput.value == "") {
+        emailInput.classList.add("is-error");
+        goodToGo = false;
+      } else {
+        emailInput.classList.remove("is-error");
+      }
+      // check social input
+      if (socialInput.value == "") {
+        socialInput.classList.add("is-error");
+        goodToGo = false;
+      } else {
+        socialInput.classList.remove("is-error");
+      }
+      // check event title input
+      if (eventTitleInput.value == "") {
+        eventTitleInput.classList.add("is-error");
+        goodToGo = false;
+      } else {
+        eventTitleInput.classList.remove("is-error");
+      }
+      // check event date input
+      if (eventDateInput.value == "") {
+        eventDateInput.classList.add("is-error");
+        goodToGo = false;
+      } else {
+        eventDateInput.classList.remove("is-error");
+      }
+      // check event location input
+      if (eventLocationInput.value == "") {
+        eventLocationInput.classList.add("is-error");
+        goodToGo = false;
+      } else {
+        eventLocationInput.classList.remove("is-error");
+      }
+      // check event capacity select
+      if (capacitySelect.value == "") {
+        capacitySelect.classList.add("is-error");
+        goodToGo = false;
+      } else {
+        capacitySelect.classList.remove("is-error");
+      }
+      // check event description input
+      if (eventDescriptionInput.value == "") {
+        eventDescriptionInput.classList.add("is-error");
+        goodToGo = false;
+      } else {
+        eventDescriptionInput.classList.remove("is-error");
+      }
+
+      if (goodToGo) {
+        // submit registration & clear
+        eventSuccessMessage.classList.add("is-shown");
+
+        const event = {
+          name: nameInput.value,
+          company: companyInput.value,
+          email: emailInput.value,
+          social: socialInput.value,
+          eventTitle: eventTitleInput.value,
+          eventDate: eventDateInput.value,
+          eventLocation: eventLocationInput.value,
+          eventCapacity: capacitySelect.value,
+          eventLink: eventLinkInput.value ?? "",
+          eventDescription: eventDescriptionInput.value,
+        };
+
+        registerEventDetailsToDatabase(event);
+        submitAttendee(false);
+
+        resetFields();
+      }
+    };
+
+    const resetFields = () => {
+      nameInput.value = "";
+      socialInput.value = "";
+      emailInput.value = "";
+      companyInput.value = "";
+      titleInput.value = "";
+      typeSelect.value = "";
+
+      eventTitleInput.value = "";
+      eventDateInput.value = "";
+      eventLocationInput.value = "";
+      capacitySelect.value = "";
+      eventLinkInput.value = "";
+      eventDescriptionInput.value = "";
+    };
   };
 
   const init = async () => {

@@ -219,8 +219,6 @@ export default function () {
 
     titleObject.loadTexture(() => {
       sceneBack.add(titleObject.obj);
-      // sceneBack.add(skyOctahedron.obj);
-      // sceneBack.add(skyOctahedronShell.obj);
       for (var i = 0; i < debris.length; i++) {
         sceneBack.add(debris[i].obj);
       }

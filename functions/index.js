@@ -22,6 +22,7 @@ exports.monitorRegistrations = functions.firestore
       fields: {
         Attendance: data.attendance,
         Name: data.name,
+        Social: data.social,
         Email: data.email,
         Company: data.company,
         Title: data.title,

@@ -86,22 +86,75 @@ block content
     .p-host-event.js-contents#register
       .p-host-event__row
         |REGISTER FOR NYC TECH WEEK
-      .p-host-apply
-        .p-introduction__input
+      .r-host-apply
+        .r-introduction__input
+          |Full Name
           input(placeholder="Your name" type='text' name='name')#name
-        .p-introduction__input
+        .r-introduction__input
+          |Social
+          input(placeholder="Your Twitter handle or LinkedIn" type='text' name='social')#social
+
+      .r-host-apply
+        .r-introduction__input
+          |Email Address
           input(placeholder="Your email" type='email' name='email')#email
-        .p-introduction__input
+        .r-introduction__input
+          |Company
           input(placeholder="Your company" type='text' name='company')#company
 
-      .p-host-apply
-        .p-introduction__input
+      .r-host-apply
+        .r-introduction__input
+          |Title
           input(placeholder="Your title" type='text' name='title')#title
-        .p-introduction__input
+        .r-introduction__input
+          |Attendance
           select(name='type')#type
             option(value='', selected='selected') -- Select attendee type --
             option(value="Guest") I'd like to attend events
             option(value="Host") I'd like to host an event
+      
+      .p-additional-fields#eventDetails
+        .r-host-event__row
+          |TECH WEEK EVENT DETAILS
+        .p-host-event__row__space
+          |
+          +textLinkOpen("https://www.notion.so/partyround/Hosting-an-NYC-Tech-Week-Event-53822a046f06463db44545e5eb2b5dc8", "- Guide to Hosting an Event -", "_blank")
+        .r-host-apply
+          .r-introduction__input
+            |Event Title
+            input(placeholder="Event title" type='text' name='event-title')#event-title
+          .r-introduction__input
+            |Event Date & Time
+            input(placeholder="Event date & time" type='datetime-local' name='event-date')#event-date
+
+        .r-host-apply
+          .r-introduction__input
+            |Event Location
+            input(placeholder="Event location" type='text' name='event-location')#event-location
+          .r-introduction__input
+            |Event Capacity
+            select(name='capacity')#capacity
+              option(value='', selected='selected') -- Select capacity level --
+              option(value="Small") Small - 10 to 25
+              option(value="Medium") Medium - 25 to 50
+              option(value="Large") Large - 50+
+        
+        .r-host-apply
+          .r-introduction__input
+            |Registration or Promotional Link (optional)
+            input(placeholder="Event link" type='url' name='event-link')#event-link
+          
+        .r-host-apply
+          .r-introduction__textarea
+            |Event Description
+            textarea(placeholder="Event description" type='text' name='event-description')#event-description
+
+        .p-host-apply
+          button(type='button')#registerEvent
+            |Register Event
+
+      .p-success#eventSuccess
+        |Successful event registration, see you there soon
 
       .p-host-apply
         button(type='button')#submit
