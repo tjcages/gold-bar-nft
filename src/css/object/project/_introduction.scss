@@ -139,6 +139,12 @@
     img {
       height: 32px;
     }
+
+    @media (min-width: $break-point-mobile) {
+      img {
+        height: 36px;
+      }
+    }
   }
   &__icon {
     opacity: 0;
