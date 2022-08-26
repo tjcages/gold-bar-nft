@@ -10,7 +10,7 @@
   letter-spacing: 0.2em;
 
   @media (min-width: $break-point-mobile) {
-    height: 840px;
+    height: 70vh;
   }
 
   &__input {
@@ -155,7 +155,7 @@
     height: 10vh;
     overflow: hidden;
     position: relative;
-    margin: 5vh auto 5vh;
+    margin: 2vh auto 2vh;
     opacity: 0;
     transition-property: opacity;
     &.is-shown {
@@ -194,7 +194,7 @@
   flex-direction: column;
   gap: 24px;
   width: 100%;
-  padding: 5vh 24px 8vh;
+  padding: 5vh 24px 50vh;
   box-sizing: border-box;
   line-height: 1.5;
   position: relative;
@@ -203,6 +203,10 @@
   color: #fff;
   text-align: center;
   letter-spacing: 0.2em;
+
+  @media (min-width: $break-point-mobile) {
+    font-size: 1rem;
+  }
 
   &__row {
     font-size: 1.1rem;
