@@ -1,15 +1,13 @@
-# ![NYC Tech Week Preview Header](https://github.com/tjcages/nyc-tw/blob/master/src/img/common/preview.gif)
+# ![Starter Preview](https://github.com/tjcages/threejs-starter/blob/master/src/img/common/preview.gif)
 
-## Requirements
-
-Node >=12.x <15
+Boilerplate webGL & threeJS code to kickstart your project.
 
 ## Usage
 
 1. Install the necessary node modules.
 
 ```
-npm i
+npm install
 ```
 
 2. Run the npm script `start` to start development.
