@@ -1,10 +1,10 @@
 {
-  "name": "nyctw",
-  "version": "2.0.0",
-  "description": "it's my personal sketch made with three.js.",
+  "name": "ty_jc",
+  "version": "1.0.0",
+  "description": "my personal website, made with three.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tjcages/nyc-tw"
+    "url": "https://github.com/tjcages"
   },
   "private": true,
   "scripts": {
@@ -63,7 +63,6 @@
     "@ykob/glsl-util": "^1.1.0",
     "@ykob/js-util": "^2.0.0",
     "easing-js": "git://github.com/danro/easing-js.git",
-    "firebase": "^9.9.2",
     "gl-matrix": "^3.3.0",
     "glsl-easings": "^1.0.0",
     "glsl-force": "git://github.com/ykob/glsl-force.git",

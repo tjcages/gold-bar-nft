@@ -3,7 +3,7 @@ node_modules
 ignore
 docs
 public
-dst/**/*
+dst
 psd/*-assets/
 .sass-cache
 !src/model/**/*

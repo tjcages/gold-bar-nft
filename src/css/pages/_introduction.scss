@@ -1,0 +1,409 @@
+@keyframes loopFollow {
+  0% {
+    transform: translateY(-100.5%);
+  }
+  100% {
+    transform: translateY(100.5%);
+  }
+}
+
+.p-infinite-wall {
+  display: flex;
+  gap: 24px;
+  line-height: 1.5;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  color: #fff;
+  padding: 8px 20px;
+
+  @media (min-width: $break-point-mobile) {
+    padding: 20px;
+  }
+
+  @keyframes infiniteScroll {
+    from {
+      transform: translateX(0%);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  &__item {
+    white-space: nowrap;
+  }
+  &.is-shown {
+    animation-duration: 22s;
+    animation-name: infiniteScroll;
+    animation-iteration-count: infinite;
+    animation-timing-function: $linear;
+  }
+
+  #twitter {
+    margin-left: 8px;
+    margin-top: 4px;
+  }
+}
+
+.p-infinite-wall-bottom {
+  display: flex;
+  gap: 24px;
+  line-height: 1.5;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 24px;
+  width: 100%;
+  z-index: 100;
+  color: #fff;
+  padding: 8px 20px;
+
+  @media (min-width: $break-point-mobile) {
+    bottom: 0;
+    padding: 20px;
+  }
+
+  @keyframes infiniteScroll {
+    from {
+      transform: translateX(0%);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  &__item {
+    white-space: nowrap;
+  }
+  &.is-shown {
+    animation-duration: 22s;
+    animation-name: infiniteScroll;
+    animation-iteration-count: infinite;
+    animation-timing-function: $linear;
+  }
+
+  #twitter {
+    margin-left: 8px;
+    margin-top: 4px;
+  }
+}
+
+.p-introduction {
+  width: 100%;
+  overflow: hidden;
+  height: 100vh;
+  box-sizing: border-box;
+  line-height: 1.5;
+  z-index: 10;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.2em;
+  &__wrap {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  &__row {
+    display: flex;
+    justify-content: center;
+    max-width: 464px;
+    margin: 0 auto 12px;
+    align-items: center;
+    gap: 16px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition-property: opacity, transform;
+
+    @media (min-width: $break-point-mobile) {
+      gap: 20px;
+    }
+
+    &.is-shown {
+      opacity: 1;
+      transform: translateY(0);
+      transition-duration: 1s;
+      transition-timing-function: $easeOutCubic;
+      @for $i from 0 through 4 {
+        &:nth-of-type(#{$i + 1}) {
+          transition-delay: $i * 0.25s + 0.6s;
+        }
+      }
+    }
+
+    img {
+      height: 32px;
+    }
+
+    @media (min-width: $break-point-mobile) {
+      img {
+        height: 36px;
+      }
+    }
+  }
+  &__icon {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition-property: opacity, transform;
+    margin-top: 20px;
+    &.is-shown {
+      opacity: 1;
+      transform: translateY(0);
+      transition-duration: 1s;
+      transition-timing-function: $easeOutCubic;
+      @for $i from 0 through 4 {
+        &:nth-of-type(#{$i + 1}) {
+          transition-delay: $i * 0.25s + 0.6s;
+        }
+      }
+    }
+  }
+  &__links {
+    margin-bottom: 20px;
+    display: inline-block;
+    justify-content: center;
+    border-top: 1px dashed #fff;
+    border-bottom: 1px dashed #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 12px 0;
+    font-size: 1.1rem;
+    opacity: 0;
+    transform: scale(1.8);
+    transition-property: opacity, transform;
+
+    &.is-shown {
+      opacity: 1;
+      transform: scale(1);
+      transition-delay: 0.6s;
+      transition-duration: 2s;
+      transition-timing-function: $easeOutCubic;
+    }
+  }
+  &__link {
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: scale(1.8);
+    margin: 0 12px;
+    transition-property: opacity, transform;
+    svg {
+      width: 18px;
+    }
+    &.is-shown {
+      opacity: 1;
+      transform: scale(1);
+      transition-duration: 1s;
+      transition-timing-function: $easeOutCubic;
+      @for $i from 0 through 4 {
+        &:nth-of-type(#{$i + 1}) {
+          transition-delay: $i * 0.1s + 1.2s;
+        }
+      }
+    }
+  }
+  &__follow {
+    width: 15px;
+    height: 7vh;
+    overflow: hidden;
+    position: relative;
+    margin: 1vh auto 1vh;
+    opacity: 0;
+    transition-property: opacity;
+    &.is-shown {
+      opacity: 1;
+      transition-duration: 0.6s;
+      transition-delay: 1.6s;
+    }
+    &-in {
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      background-color: #fff;
+      animation-name: loopFollow;
+      animation-duration: 0.8s;
+      animation-iteration-count: infinite;
+      &--1 {
+        left: 0;
+      }
+      &--2 {
+        left: 50%;
+        margin-left: -1px;
+        animation-delay: 0.3s;
+      }
+      &--3 {
+        right: 0;
+        animation-delay: 0.15s;
+      }
+    }
+  }
+}
+
+.p-host-event {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  // height: 120vh;
+  padding-top: 15vh;
+  padding-bottom: 15vh;
+  box-sizing: border-box;
+  line-height: 1.5;
+  position: relative;
+  align-items: center;
+  z-index: 10;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.2em;
+
+  @media (min-width: $break-point-mobile) {
+    padding-top: 30vh;
+    padding-bottom: 25vh;
+    // height: 100vh;
+  }
+
+  &__input {
+    margin-bottom: 20px;
+    display: inline-block;
+    justify-content: center;
+    border-top: 1px dashed #fff;
+    border-bottom: 1px dashed #fff;
+    padding: 17px 0;
+    opacity: 0;
+    transform: scale(1.8);
+    transition-property: opacity, transform;
+
+    &.is-shown {
+      opacity: 1;
+      transform: scale(1);
+      transition-delay: 0.6s;
+      transition-duration: 1s;
+      transition-timing-function: $easeOutCubic;
+    }
+  }
+
+  &__row {
+    &__space {
+      margin-bottom: 24px;
+    }
+  }
+}
+
+.p-host-apply {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+
+  @media (min-width: $break-point-mobile) {
+    flex-direction: row;
+  }
+
+  input,
+  select {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 18px 24px;
+    width: 212px;
+    -webkit-appearance: none;
+    border-radius: 0;
+    font-size: 1.1rem;
+
+    @media (min-width: $break-point-mobile) {
+      font-size: 1rem;
+    }
+
+    &.is-error {
+      border: 1px solid #ff200e;
+    }
+  }
+  select {
+    min-width: 264px;
+    height: 54px;
+    min-height: 54px;
+    padding: 0 24px;
+  }
+  input:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 1);
+  }
+  select:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 1);
+  }
+
+  button {
+    min-width: 264px;
+    padding: 14px 24px;
+    width: 164px;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 1.1rem;
+    margin-top: 24px;
+    opacity: 1;
+
+    &.is-hidden {
+      opacity: 0;
+    }
+
+    @media (min-width: $break-point-mobile) {
+      font-size: 1rem;
+    }
+  }
+}
+
+.p-success {
+  padding: 12px 24px;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: none;
+  opacity: 0;
+  transform: scale(0.6);
+  transition-property: opacity, transform;
+
+  &.is-shown {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+    transition-duration: 0.3s;
+    transition-timing-function: $easeOutCubic;
+  }
+}
+
+.p-additional-fields {
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  margin-top: 24px;
+  background-color: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transform: scale(0.6);
+  transition-property: opacity, transform;
+
+  &.is-shown {
+    display: flex;
+    opacity: 1;
+    transform: scale(1);
+    transition-duration: 0.3s;
+    transition-timing-function: $easeOutCubic;
+  }
+
+  .p-host-event {
+    &__row {
+      text-decoration: underline;
+    }
+  }
+}

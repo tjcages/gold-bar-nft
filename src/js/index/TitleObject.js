@@ -1,10 +1,10 @@
 const THREE = require("three");
 
-const isiOS = require('../smooth_scroll_manager/isiOS');
-const isAndroid = require('../smooth_scroll_manager/isAndroid');
+const isiOS = require('../scroll/isiOS');
+const isAndroid = require('../scroll/isAndroid');
 
-import vs from "./glsl/typo.vs";
-import fs from "./glsl/typo.fs";
+import vs from "./glsl/title.vs";
+import fs from "./glsl/title.fs";
 
 export default class TitleObject {
   constructor() {
@@ -27,7 +27,7 @@ export default class TitleObject {
   }
   loadTexture(callback) {
     const loader = new THREE.TextureLoader();
-    loader.load("/img/index/tex_title.png", (texture) => {
+    loader.load("/img/index/title.png", (texture) => {
       texture.magFilter = THREE.NearestFilter;
       texture.minFilter = THREE.NearestFilter;
       this.uniforms.texture.value = texture;
@@ -48,8 +48,6 @@ export default class TitleObject {
       new THREE.RawShaderMaterial({
         uniforms: this.uniforms,
         vertexShader: vs,
-        // vertexShader: require('./glsl/titleObject.vs').default,
-        // fragmentShader: require('./glsl/titleObject.fs').default,
         fragmentShader: fs,
         transparent: true,
       })

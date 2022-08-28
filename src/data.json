@@ -1,23 +1,16 @@
 {
   "meta": {
     "domain": "https://nyctechweek.xyz/",
-    "title": "New York Tech Week 2022",
-    "keywords": "New York, Tech, Week, 2022, Party Round, WebGL, three.js",
-    "description": "New York Tech Week is a week of IRL events thrown by NYC VCs & startups. Register your email to host or attend the events."
+    "title": "tyler j",
+    "keywords": "tyler, j, cagle, website, portfolio",
+    "description": "welcome"
   },
   "pages": {
     "index": {
       "title": "",
       "id": "index",
-      "description": "New York Tech Week is a week of IRL events thrown by NYC VCs & startups. Register your email to host or attend the events.",
+      "description": "welcome | home",
       "path": "/",
-      "color": "white"
-    },
-    "register": {
-      "title": "",
-      "id": "register",
-      "description": "New York Tech Week is a week of IRL events thrown by NYC VCs & startups. Register your event details to be included.",
-      "path": "/register",
       "color": "white"
     },
     "twitter": {

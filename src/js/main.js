@@ -16,8 +16,7 @@ if (pageId == 'index') {
   });
 
   switch (pageId) {
-    case 'register':        require('./sketch/register/init.js').default();; break;
-    case 'twitter':        require('./sketch/twitter/init.js').default();; break;
+    // case 'twitter':        require('./twitter/init.js').default();; break;
     default:
   }
 }
