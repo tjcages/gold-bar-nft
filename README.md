@@ -1,4 +1,4 @@
-# ![Starter Preview](https://github.com/tjcages/threejs-starter/blob/master/src/img/common/preview.png)
+# ![Starter Preview](https://github.com/tjcages/gold-bar-nft/blob/main/src/img/common/preview.png)
 
 Boilerplate webGL & threeJS code to kickstart your project.
 
