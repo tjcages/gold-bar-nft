@@ -1,23 +1,16 @@
 {
   "meta": {
-    "domain": "https://nyctechweek.xyz/",
-    "title": "tyler j",
-    "keywords": "tyler, j, cagle, website, portfolio",
+    "domain": "https://goldbarnft.xyz/",
+    "title": "Gold Bar NFT",
+    "keywords": "gold, bar, nft, project, party, round, mag, magazine",
     "description": "welcome"
   },
   "pages": {
     "index": {
-      "title": "",
+      "title": "Gold Bar NFT",
       "id": "index",
-      "description": "welcome | home",
+      "description": "Introducing the Gold Bar NFT",
       "path": "/",
-      "color": "white"
-    },
-    "twitter": {
-      "title": "",
-      "id": "twitter",
-      "description": "New York Tech Week is a week of IRL events thrown by NYC VCs & startups. Register your event details to be included.",
-      "path": "/twitter",
       "color": "white"
     }
   }

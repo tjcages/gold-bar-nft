@@ -157,7 +157,6 @@ module.exports.cleanCss = {
 
 module.exports.uglify = {
   src: [
-    `./${DIR.DEST}/js/vendor.js`,
     `./${DIR.DEST}/js/main.js`,
   ],
   dest: `${DIR.BUILD}/js`,
@@ -171,7 +170,6 @@ module.exports.copy = {
       `${DIR.SRC}/img/**/*.*`,
       `${DIR.SRC}/font/**/*.*`,
       `${DIR.SRC}/model/**/*.*`,
-      `${DIR.SRC}/js/vendor/clmtrackr/**/*`,
     ],
     dest: `${DIR.DEST}`,
     opts: {

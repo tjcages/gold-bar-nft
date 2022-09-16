@@ -11,11 +11,6 @@ export default class ScrollItem {
     this.bottom = this.top + rect.height;
   }
   show(top, bottom) {
-    if (top > this.top && bottom < this.bottom) {
-      this.elm.classList.add('is-shown');
-      for (var i = 0; i < this.elmChildren.length; i++) {
-        this.elmChildren[i].classList.add('is-shown');
-      }
-    }
+
   }
 }

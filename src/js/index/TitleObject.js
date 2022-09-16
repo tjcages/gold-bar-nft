@@ -1,13 +1,13 @@
 const THREE = require("three");
 
-const isiOS = require('../scroll/isiOS');
-const isAndroid = require('../scroll/isAndroid');
+const isiOS = require("../scroll/isiOS");
+const isAndroid = require("../scroll/isAndroid");
 
 import vs from "./glsl/title.vs";
 import fs from "./glsl/title.fs";
 
 export default class TitleObject {
-  constructor() {
+  constructor(image, width, height, widthSegments, heightSegments) {
     this.uniforms = {
       time: {
         type: "f",
@@ -24,19 +24,20 @@ export default class TitleObject {
     };
     this.obj;
     this.isLoaded = false;
+    this.image = image;
+    this.width = width;
+    this.height = height;
+    this.widthSegments = widthSegments;
+    this.heightSegments = heightSegments;
   }
   loadTexture(callback) {
     const loader = new THREE.TextureLoader();
-    loader.load("/img/index/title.png", (texture) => {
+    loader.load(this.image, (texture) => {
       texture.magFilter = THREE.NearestFilter;
       texture.minFilter = THREE.NearestFilter;
       this.uniforms.texture.value = texture;
       this.obj = this.createObj();
-      if (isiOS() | isAndroid()) {
-        this.obj.position.set(0, 44, 0);
-      } else {
-        this.obj.position.set(0, 8, 0);
-      }
+      this.obj.position.set(0, 0, 0);
 
       this.isLoaded = true;
       callback();
@@ -44,7 +45,7 @@ export default class TitleObject {
   }
   createObj() {
     return new THREE.Mesh(
-      new THREE.PlaneGeometry(256, 100, 40, 10),
+      new THREE.PlaneGeometry(this.width, this.height, this.widthSegments, this.heightSegments),
       new THREE.RawShaderMaterial({
         uniforms: this.uniforms,
         vertexShader: vs,

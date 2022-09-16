@@ -1,8 +1,5 @@
 block vars
 
-include ../_mixin/_common.pug
-include ../_mixin/_svg.pug
-
 doctype html
 html(lang="ja")
   head
@@ -14,5 +11,7 @@ html(lang="ja")
     )
       block content
     block scripts
-    script(src="/js/main.min.js")
-    script(src="/js/main.js")
+    if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') 
+      script(src="/js/main.js")
+    else 
+      script(src="/js/main.min.js")

@@ -5,7 +5,6 @@ const Hookes = require('./Hookes').default;
 const ScrollItems = require('./ScrollItems').default;
 
 const contents = document.querySelector('.js-contents');
-const dummyScroll = document.querySelector('.js-dummy-scroll');
 
 export default class SmoothScrollManager {
   constructor() {
@@ -60,14 +59,12 @@ export default class SmoothScrollManager {
   }
   pause() {
     this.isWorking = false;
-    contents.style.position = 'fixed';
 
     this.hookes.contents.velocity[1] = this.hookes.contents.anchor[1] = this.scrollTop * -1;
     this.scrollTopPause = this.scrollTop;
     window.scrollTo(0, this.scrollTop);
   }
   play() {
-    contents.style.position = '';
     this.scrollTop = this.scrollTopPause;
     if (this.resolution.x <= this.X_SWITCH_SMOOTH) {
       this.hookes.contents.velocity[1] = this.hookes.contents.anchor[1] = 0;
@@ -75,17 +72,7 @@ export default class SmoothScrollManager {
     window.scrollTo(0, this.scrollTop);
     this.isWorking = true;
   }
-  initDummyScroll() {
-    if (this.resolution.x <= this.X_SWITCH_SMOOTH) {
-      contents.style.transform = '';
-      contents.classList.remove('is-fixed');
-      dummyScroll.style.height = `0`;
-    } else {
-      contents.classList.add('is-fixed');
-      dummyScroll.style.height = `${contents.clientHeight}px`;
-    }
-    this.render();
-  }
+
   initHookes() {
     this.hookes = {
       contents: new Hookes({ k: 0.575, d: 0.8 }),
@@ -151,7 +138,6 @@ export default class SmoothScrollManager {
 
     if (this.resizePrev) this.resizePrev();
 
-    this.initDummyScroll();
     this.render();
     window.scrollTo(0, this.scrollTop);
 
@@ -165,7 +151,6 @@ export default class SmoothScrollManager {
     if (this.renderPrev) this.renderPrev();
 
     const y = Math.floor(this.hookes.contents.velocity[1] * 1000) / 1000;
-    contents.style.transform = `translate3D(0, ${y}px, 0)`;
 
     for (var key in this.hookes) {
       this.hookes[key].render();

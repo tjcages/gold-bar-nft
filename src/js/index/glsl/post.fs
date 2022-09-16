@@ -4,7 +4,9 @@ uniform float time;
 uniform vec2 resolution;
 uniform sampler2D texture;
 
-varying vec2 vUv;
+varying vec2 vUv;          // interpolated vertex output data
+uniform sampler2D tDiffuse;      // sampler of rendered scene?s render target
+varying vec2 vUVDot;          // interpolated vertex output data
 
 const float duration = 8.0;
 const float delay = 4.0;
@@ -29,6 +31,9 @@ void main() {
   float r = texture2D(texture, vUv - vec2(2.0, 0.0) / resolution).r;
   float g = texture2D(texture, vUv).g;
   float b = texture2D(texture, vUv + vec2(2.0, 0.0) / resolution).b;
+
+  // vec3 uv = dot(vUVDot, vUVDot) * vec3(-0.5, -0.5, -1.0) + vUV;
+  // gl_FragColor = texture2DProj(tDiffuse, uv);
 
   gl_FragColor = vec4((vec3(r, g, b) + whiteNoise) + monitor + vignette, 1.0);
 }
