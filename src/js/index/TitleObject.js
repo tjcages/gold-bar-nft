@@ -7,7 +7,7 @@ import vs from "./glsl/title.vs";
 import fs from "./glsl/title.fs";
 
 export default class TitleObject {
-  constructor(image, width, height, widthSegments, heightSegments) {
+  constructor(image, width, height) {
     this.uniforms = {
       time: {
         type: "f",
@@ -27,8 +27,6 @@ export default class TitleObject {
     this.image = image;
     this.width = width;
     this.height = height;
-    this.widthSegments = widthSegments;
-    this.heightSegments = heightSegments;
   }
   loadTexture(callback) {
     const loader = new THREE.TextureLoader();
@@ -45,7 +43,7 @@ export default class TitleObject {
   }
   createObj() {
     return new THREE.Mesh(
-      new THREE.PlaneGeometry(this.width, this.height, this.widthSegments, this.heightSegments),
+      new THREE.PlaneGeometry(this.width, this.height, 40, 10),
       new THREE.RawShaderMaterial({
         uniforms: this.uniforms,
         vertexShader: vs,
