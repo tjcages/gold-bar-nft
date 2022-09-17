@@ -6,12 +6,12 @@ body {
   font-family: 'Homenaje', sans-serif;
   letter-spacing: 0.15em;
   background-color: #111;
-  @include l-pc-and-tablet {
-    @include fontSize(14);
-  }
-  @include l-mobile {
-    @include fontSize(12);
-  }
+  // @include l-pc-and-tablet {
+  //   @include fontSize(14);
+  // }
+  // @include l-mobile {
+  //   @include fontSize(12);
+  // }
   &.is-opened-index {
     overflow: auto;
   }

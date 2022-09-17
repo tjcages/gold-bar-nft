@@ -1,4 +1,10 @@
 const THREE = require("three");
+const {
+  EffectComposer,
+} = require("three/examples/jsm/postprocessing/EffectComposer.js");
+const { RenderPass } = require("three/examples/jsm/postprocessing/RenderPass.js");
+const { ShaderPass } = require("three/examples/jsm/postprocessing/ShaderPass.js");
+const { getDistortionShaderDefinition } = require("./FishEye.js");
 const { debounce } = require("@ykob/js-util");
 const { isMobile } = require("../scroll/Agent");
 
@@ -24,6 +30,30 @@ export default function () {
   const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
   const cameraBack = new THREE.PerspectiveCamera(45, 1.4, 1, 10000);
   const clock = new THREE.Clock();
+
+  // Create effect composer
+  // const composer = new EffectComposer(renderer);
+  // composer.addPass(new RenderPass(scene, cameraBack));
+
+  // // Add distortion effect to effect composer
+  // var effect = new ShaderPass(getDistortionShaderDefinition());
+  // composer.addPass(effect);
+  // effect.renderToScreen = true;
+
+  // // Setup distortion effect
+  // var horizontalFOV = 850;
+  // var strength = 1;
+  // var cylindricalRatio = 2;
+  // var height = Math.tan(THREE.Math.degToRad(horizontalFOV) / 2) / cameraBack.aspect;
+
+  // // cameraBack.fov = (Math.atan(height) * 2 * 180) / 3.1415926535;
+  // cameraBack.updateProjectionMatrix();
+
+  // effect.uniforms["strength"].value = strength;
+  // effect.uniforms["height"].value = height;
+  // effect.uniforms["aspectRatio"].value = cameraBack.aspect;
+  // effect.uniforms["cylindricalRatio"].value = cylindricalRatio;
+
   const introObject = new TitleObject(
     "/img/index/intro.png",
     mobile ? 493 : 293,
