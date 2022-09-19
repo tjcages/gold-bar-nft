@@ -1,12 +1,9 @@
 const THREE = require("three");
 
-const isiOS = require("../scroll/isiOS");
-const isAndroid = require("../scroll/isAndroid");
-
 import vs from "./glsl/title.vs";
 import fs from "./glsl/title.fs";
 
-export default class TitleObject {
+export default class ImageObject {
   constructor(image, width, height) {
     this.uniforms = {
       time: {

@@ -9,7 +9,7 @@ const { debounce } = require("@ykob/js-util");
 const { isMobile } = require("../scroll/Agent");
 
 const SmoothScrollManager = require("../scroll/SmoothScrollManager").default;
-const TitleObject = require("./TitleObject").default;
+const ImageObject = require("./ImageObject").default;
 const PostEffect = require("./Post").default;
 
 export default function () {
@@ -54,78 +54,78 @@ export default function () {
   // effect.uniforms["aspectRatio"].value = cameraBack.aspect;
   // effect.uniforms["cylindricalRatio"].value = cylindricalRatio;
 
-  const introObject = new TitleObject(
+  const introObject = new ImageObject(
     "/img/index/intro.png",
     mobile ? 493 : 293,
     17
   );
-  const titleObject = new TitleObject(
+  const titleObject = new ImageObject(
     "/img/index/title.png",
     mobile ? 870 : 541,
-    45
+    mobile ? 40 : 45
   );
-  const realObject = new TitleObject(
+  const realObject = new ImageObject(
     "/img/index/real.png",
     mobile ? 650 : 299,
     16
   );
-  const goldObject = new TitleObject(
+  const goldObject = new ImageObject(
     "/img/index/gold.jpeg",
     mobile ? 800 : 400,
     400
   );
-  const tiedObject = new TitleObject(
+  const tiedObject = new ImageObject(
     "/img/index/tied.png",
     mobile ? 420 : 178,
     28
   );
-  const priceObject = new TitleObject(
+  const priceObject = new ImageObject(
     "/img/index/price.png",
-    mobile ? 440 : 183,
+    mobile ? 400 : 183,
     108
   );
-  const limitedObject = new TitleObject(
+  const limitedObject = new ImageObject(
     "/img/index/limited.png",
-    mobile ? 440 : 183,
+    mobile ? 400 : 183,
     36,
     40,
     10
   );
-  const twoObject = new TitleObject(
+  const twoObject = new ImageObject(
     "/img/index/two.png",
-    mobile ? 440 : 183,
+    mobile ? 400 : 183,
     36
   );
-  const cardsObject = new TitleObject(
+  const cardsObject = new ImageObject(
     "/img/index/cards.png",
-    mobile ? 440 : 183,
+    mobile ? 400 : 183,
     36
   );
-  const freeObject = new TitleObject(
+  const freeObject = new ImageObject(
     "/img/index/free.png",
     mobile ? 360 : 183,
     mobile ? 100 : 152
   );
-  const callObject = new TitleObject(
+  const callObject = new ImageObject(
     "/img/index/call.png",
     mobile ? 450 : 334,
     72
   );
-  const backedObject = new TitleObject(
+  const backedObject = new ImageObject(
     "/img/index/backed.png",
     mobile ? 264 : 164,
     110,
     40,
     10
   );
-  const review1Object = new TitleObject(
+  const review1Object = new ImageObject(
     "/img/index/review1.png",
     mobile ? 350 : 155,
     80,
     40,
     10
   );
-  const review2Object = new TitleObject(
+  const review2Object = new ImageObject(
     "/img/index/review2.png",
     mobile ? 350 : 155,
     80,
@@ -226,19 +226,19 @@ export default function () {
     });
 
     priceObject.loadTexture(() => {
-      priceObject.obj.position.x = 1310 * (mobile ? 0.185 : 0.26);
+      priceObject.obj.position.x = 1310 * (mobile ? 0.19 : 0.26);
       priceObject.obj.position.y = 935 * (mobile ? 0.095 : 0.07);
       sceneBack.add(priceObject.obj);
     });
 
     limitedObject.loadTexture(() => {
-      limitedObject.obj.position.x = 1310 * (mobile ? 0.185 : 0.26);
+      limitedObject.obj.position.x = 1310 * (mobile ? 0.19 : 0.26);
       limitedObject.obj.position.y = 935 * -(mobile ? -0.01 : 0.03);
       sceneBack.add(limitedObject.obj);
     });
 
     twoObject.loadTexture(() => {
-      twoObject.obj.position.x = 1310 * (mobile ? 0.185 : 0.26);
+      twoObject.obj.position.x = 1310 * (mobile ? 0.2 : 0.26);
       twoObject.obj.position.y = 935 * -(mobile ? 0.22 : 0.09);
       sceneBack.add(twoObject.obj);
     });
